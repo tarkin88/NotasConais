@@ -1,0 +1,29 @@
+<ion-modal-view ng-controller="HomeController as vm">
+    <ion-header-bar class="bar bar-header bar-positive">
+      <h1 class="title">Nueva Nota</h1>
+      <button class="button button-clear button-primary" ng-click="modal.hide()">cerrar</button>
+    </ion-header-bar>
+    <ion-content>
+     <form name="formNewNote" novalidate>
+		<div class="list">
+		  <label class="item item-input item-floating-label">
+		    <span class="input-label">Titulo</span>
+		    <input 	type="text"
+		    		placeholder="Titulo"
+		    		ng-model="form.titulo"
+		    		required>
+		  </label>
+		  <label class="item item-input item-floating-label">
+		  <span class="input-label">Cuerpo</span>
+    			<textarea 	placeholder="Cuerpo"
+    						ng-model="form.body"
+    						required
+    						rows="5"></textarea>
+  		</label>
+		</div>
+		<button class="button button-calm button-full"
+				ng-disabled="formNewNote.$invalid"
+				ng-click="vm.addNewNote(form)">Agregar</button>
+     </form>
+    </ion-content>
+</ion-modal-view>

@@ -1,0 +1,23 @@
+<ion-content class="" direction="x">
+<div class="list">
+
+  <div class="item item-divider">
+   Mis Notas
+  </div>
+
+  	<div class="list" ng-repeat="nota in vm.notas">
+	    <a class="item item-icon-left"  ng-click="vm.viewDetail(nota)">
+	     <i class="icon ion-document-text calm"></i>
+	    	<h2>{{ nota.titulo }}</h2>
+			<span> {{ nota.fecha }} </span>
+	    </a>
+	</div>
+</div>
+
+</ion-content>
+
+<div class="bar bar-footer bar-balanced">
+  <div 	class="title"
+  		ng-click="vm.addNote()">Agregar Nota
+  	</div>
+</div>
