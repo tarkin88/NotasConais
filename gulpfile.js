@@ -6,6 +6,7 @@ var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
+var bulkSass = require('gulp-sass-bulk-import');
 
 var paths = {
   sass: ['./scss/**/*.scss']
@@ -15,7 +16,11 @@ gulp.task('default', ['sass']);
 
 gulp.task('sass', function(done) {
   gulp.src('./scss/ionic.app.scss')
-    .pipe(sass())
+    .pipe(bulkSass())
+    .pipe(sass({
+        compass: true,
+        errLogToConsole:true
+    }))
     .on('error', sass.logError)
     .pipe(gulp.dest('./www/css/'))
     .pipe(minifyCss({

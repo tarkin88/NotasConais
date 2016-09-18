@@ -1,0 +1,44 @@
+<ion-content>
+<div class="header">
+	<p>Nuevo Usuario</p>
+</div>
+	<form novalidate name="formRegister">
+	<p class="info">Escriba en los campos los datos para poder crear su usuarios</p>
+	<div class="list">
+	  <label class="item item-input item-floating-label">
+	    <span class="input-label">Usuario</span>
+	    <input type="text"
+	    placeholder="Usuario"
+	    ng-model="form.user"
+	    required>
+	  </label>
+	  <label class="item item-input item-floating-label">
+	    <span class="input-label">Contraseña</span>
+	    <input type="password"
+	    placeholder="Contraseña"
+	    ng-model="form.password"
+	    required>
+	  </label>
+
+	  <label class="item item-input item-floating-label">
+	    <span class="input-label">Repita la Contraseña</span>
+	    <input type="password"
+	    placeholder="Repita la Contraseña"
+	    ng-model="form.passwordConfirm"
+	    required>
+	  </label>
+
+	  	<button class="button button-calm button-full"
+	  			ng-disabled="formRegister.$invalid"
+	  			ng-click="vm.registerUser(form)">
+	  		Registrar
+		</button>
+	</div>
+	</form>
+</ion-content>
+
+<div class="bar bar-footer bar-stable">
+  <div 	class="title"
+  		ui-sref="login">Volver
+  	</div>
+</div>

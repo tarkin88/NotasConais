@@ -4,7 +4,7 @@
 		.module('app')
 		.controller('LoginController', LoginController);
 
-	function LoginController ($log, $state, $ionicPopup){
+	function LoginController ($log, $state, $ionicLoading, localStorageService){
 		/* Data */
 		var vm = this;
 
@@ -19,24 +19,28 @@
 			*	@param: user
 			*	@param: password
 			**/
-			var user= 'frank', pass= '1234';
+			if(localStorageService.get('user')){
+				var user= localStorageService.get('user').username;
+				var pass= localStorageService.get('user').password;
 
-			if(form.user ===  user){
-				if(form.password === pass){
-					$state.go('home');
+				if(form.user ===  user){
+					if(form.password === pass){
+						$state.go('home');
+						alert('Bienvenido ' + user);
+					}else{
+						alert('Contraseña incorrecta');
+					}
 				}else{
-					alert('Contraseña incorrecta');
+					alert('Usuario incorrecto');
 				}
 			}else{
-				alert('Usuario incorrecto');
+				alert('No existe ningun usuario. ');
 			}
+
 		}
 
 		function alert(text){
-			$ionicPopup.alert({
-     				title: 'Atención',
-				    template: '<p style="text-align: center;">' + text + '</h3>'
-   			});
+			$ionicLoading.show({ template: text, noBackdrop: true, duration: 2000 });
 		}
 	}
 })();

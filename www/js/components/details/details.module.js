@@ -7,7 +7,7 @@
 	function RouteConfig($stateProvider){
 		$stateProvider
             .state('details', {
-            	url: '/details',
+            	url: '/details/:id',
             	templateUrl: 'js/components/details/details.html',
             	controller: 'DetailsController as vm'
         });

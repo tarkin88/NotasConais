@@ -7,6 +7,7 @@
 		$stateProvider
             .state('home', {
             	url: '/home',
+            	cache:false,
             	templateUrl: 'js/components/home/home.html',
             	controller: 'HomeController as vm'
         });
